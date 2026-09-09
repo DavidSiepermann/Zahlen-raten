@@ -1,4 +1,4 @@
-from flask import Flask, render_template  #
+from flask import Flask, render_template, request, redirect  #
 
 app = Flask(__name__)
 my_tasks = ['Learn Flask', 'Create App']

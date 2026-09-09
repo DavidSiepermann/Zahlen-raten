@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Todo App</title>
+    </head>
+    <body>
+        <h1>Todo App</h1>
+        <ul>
+            <!-- # for-Schleifen in Templates -->
+            {% for task in tasks %}
+            <li>{{ task }}</li>
+            {% endfor %}
+        </ul>
+        <h2>Task hinzufügen</h2>
+        <form action="" method="post">
+            <label for="content">Inhalt:</label>
+            <input type="text" name="content" placeholder="Neuer Task" />
+            <input type="submit" value="Add" />
+        </form>
+    </body>
+</html>
