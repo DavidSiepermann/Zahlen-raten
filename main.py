@@ -3,6 +3,9 @@
 # Methoden: registrieren, einloggen, spiel starten, 
 # - Game -> Attribute gewonnen, verloren, rateversuche
 # Methoden: spielen, beenden, statistik anzeigen
+
+import flask
+
 class User:
     def __init__(self, username, rateversuche):
         self.username = username
