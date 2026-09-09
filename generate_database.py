@@ -5,9 +5,9 @@ cursor = conn.cursor()
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS users (
-    username TEXT,
-    passwort TEXT,
-    rateversuche INTEGER
+    username TEXT NOT NULL UNIQUE,
+    passwort TEXT NOT NULL,
+    rateversuche INTEGER NOT NULL DEFAULT 0
 )
 """)
 

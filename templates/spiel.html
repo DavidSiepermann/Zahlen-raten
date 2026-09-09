@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zahlen-Raten | Spiel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="panel game-panel">
+    <div class="topline"><span>Hallo, <strong>{{ username }}</strong></span><a href="{{ url_for('logout') }}">Ausloggen</a></div>
+    <p class="eyebrow">Deine Runde</p>
+    <h1>Finde die <span>Zahl.</span></h1>
+    <p class="intro">Ich denke an eine Zahl zwischen 0 und 100. Du hast maximal drei Versuche.</p>
+    {% if message %}<div class="message {{ message_type }}">{{ message }}</div>{% endif %}
+    {% if not spiel_beendet %}
+    <form method="post" class="form guess-form">
+        <label for="guess">Dein Tipp</label>
+        <input id="guess" name="guess" type="number" min="0" max="100" required autofocus>
+        <button type="submit" name="action" value="guess">Tipp abgeben</button>
+    </form>
+    {% else %}
+    <form method="post" class="form"><button type="submit" name="action" value="new_game">Neues Spiel starten</button></form>
+    {% endif %}
+    <div class="stats">
+        <div><span>Versuche in dieser Runde</span><strong>{{ spielversuche }} / 3</strong></div>
+        <div><span>Gesamte Rateversuche</span><strong>{{ gesamtversuche }}</strong></div>
+    </div>
+</main>
+</body>
+</html>

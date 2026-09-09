@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zahlen-Raten | Anmeldung</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="panel">
+    <p class="eyebrow">Zahlen-Raten</p>
+    <h1>Wie gut kannst du<br><span>raten?</span></h1>
+    <p class="intro">Melde dich an oder erstelle ein Konto und finde die Zahl zwischen 0 und 100.</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <div class="message {{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endwith %}
+    <form method="post" class="form">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="username" required autofocus>
+        <label for="password">Passwort</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <div class="actions">
+            <button type="submit" name="action" value="login">Anmelden</button>
+            <button type="submit" name="action" value="register" class="secondary">Registrieren</button>
+        </div>
+    </form>
+</main>
+</body>
+</html>
